@@ -1,0 +1,302 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma-watchdog"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL_WATCHDOG")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model apis {
+  id                                                                          Int                   @id @default(autoincrement())
+  name                                                                        String                @unique(map: "name") @db.VarChar(255)
+  group_name                                                                  String?               @db.VarChar(255)
+  request_authentication_type                                                 String?               @db.VarChar(255)
+  request_target_method_type                                                  String                @db.VarChar(255)
+  request_target_response_type                                                String                @db.VarChar(255)
+  basic_and_bearer_authentication_method_type                                 String?               @db.VarChar(255)
+  oauth_authentication_grant_type                                             String?               @db.VarChar(255)
+  api_key_authentication_key                                                  String?               @db.LongText
+  api_key_authentication_header_name                                          String?               @db.VarChar(255)
+  basic_authentication_username                                               String?               @db.LongText
+  basic_authentication_password                                               String?               @db.LongText
+  basic_and_bearer_authentication_url                                         String?               @db.VarChar(255)
+  basic_and_bearer_authentication_query_parameter_map                         Json?
+  basic_and_bearer_authentication_header_map                                  Json?
+  basic_and_bearer_authentication_body                                        Json?
+  basic_and_bearer_authentication_token_extractor_list                        Json?
+  basic_and_bearer_authentication_expiration_extractor_list                   Json?
+  basic_and_bearer_authentication_expiration_buffer                           Int?
+  bearer_authentication_token                                                 String?               @db.LongText
+  oauth_authentication_client_id                                              String?               @db.LongText
+  oauth_authentication_client_secret                                          String?               @db.LongText
+  oauth_authentication_token_url                                              String?               @db.VarChar(255)
+  oauth_authentication_authorization_url                                      String?               @db.VarChar(255)
+  oauth_authentication_redirect_url                                           String?               @db.VarChar(255)
+  oauth_authentication_scope                                                  String?               @db.VarChar(255)
+  oauth_authentication_access_token_extractor_list                            Json?
+  oauth_authentication_refresh_token_extractor_list                           Json?
+  oauth_authentication_expiration_extractor_list                              Json?
+  oauth_authentication_expiration_buffer                                      Int?
+  oauth_authentication_pkce_enabled                                           Boolean?
+  oauth_authentication_additional_parameter_map                               Json?
+  request_target_url                                                          String                @db.VarChar(255)
+  request_target_query_parameter_map                                          Json?
+  request_target_header_map                                                   Json?
+  request_target_body                                                         Json?
+  is_api_active                                                               Boolean               @default(true)
+  created_at                                                                  DateTime              @default(now()) @db.DateTime(0)
+  updated_at                                                                  DateTime              @default(now()) @db.DateTime(0)
+  authentication_types                                                        authentication_types? @relation(fields: [request_authentication_type], references: [authentication_type], onDelete: Cascade, onUpdate: NoAction, map: "apis_ibfk_1")
+  method_types_apis_request_target_method_typeTomethod_types                  method_types          @relation("apis_request_target_method_typeTomethod_types", fields: [request_target_method_type], references: [method_type], onDelete: Cascade, onUpdate: NoAction, map: "apis_ibfk_2")
+  response_types                                                              response_types        @relation(fields: [request_target_response_type], references: [response_type], onDelete: Cascade, onUpdate: NoAction, map: "apis_ibfk_3")
+  method_types_apis_basic_and_bearer_authentication_method_typeTomethod_types method_types?         @relation("apis_basic_and_bearer_authentication_method_typeTomethod_types", fields: [basic_and_bearer_authentication_method_type], references: [method_type], onDelete: Cascade, onUpdate: NoAction, map: "apis_ibfk_4")
+  grant_types                                                                 grant_types?          @relation(fields: [oauth_authentication_grant_type], references: [grant_type], onDelete: Cascade, onUpdate: NoAction, map: "apis_ibfk_5")
+
+  @@index([api_key_authentication_header_name], map: "idx_api_key_authentication_header_name")
+  @@index([basic_and_bearer_authentication_expiration_buffer], map: "idx_basic_and_bearer_authentication_expiration_buffer")
+  @@index([basic_and_bearer_authentication_method_type], map: "idx_basic_and_bearer_authentication_method_type")
+  @@index([basic_and_bearer_authentication_url], map: "idx_basic_and_bearer_authentication_url")
+  @@index([created_at], map: "idx_created_at")
+  @@index([group_name], map: "idx_group_name")
+  @@index([is_api_active], map: "idx_is_api_active")
+  @@index([name], map: "idx_name")
+  @@index([oauth_authentication_authorization_url], map: "idx_oauth_authentication_authorization_url")
+  @@index([oauth_authentication_expiration_buffer], map: "idx_oauth_authentication_expiration_buffer")
+  @@index([oauth_authentication_grant_type], map: "idx_oauth_authentication_grant_type")
+  @@index([oauth_authentication_pkce_enabled], map: "idx_oauth_authentication_pkce_enabled")
+  @@index([oauth_authentication_redirect_url], map: "idx_oauth_authentication_redirect_url")
+  @@index([oauth_authentication_scope], map: "idx_oauth_authentication_scope")
+  @@index([oauth_authentication_token_url], map: "idx_oauth_authentication_token_url")
+  @@index([request_authentication_type], map: "idx_request_authentication_type")
+  @@index([request_target_method_type], map: "idx_request_target_method_type")
+  @@index([request_target_response_type], map: "idx_request_target_response_type")
+  @@index([request_target_url], map: "idx_request_target_url")
+  @@index([updated_at], map: "idx_updated_at")
+}
+
+model application_types {
+  id               Int           @id @default(autoincrement())
+  application_type String        @unique(map: "application_type") @db.VarChar(255)
+  created_at       DateTime      @default(now()) @db.DateTime(0)
+  updated_at       DateTime      @default(now()) @db.DateTime(0)
+  applications     applications?
+  users            users[]
+
+  @@index([application_type], map: "idx_application_type")
+  @@index([created_at], map: "idx_created_at")
+  @@index([updated_at], map: "idx_updated_at")
+}
+
+model applications {
+  id                         Int               @id @default(autoincrement())
+  application_type           String            @unique(map: "application_type") @db.VarChar(255)
+  watchdog_try_count         Int               @default(0)
+  is_notified_by_watchdog    Boolean           @default(false)
+  is_application_type_active Boolean           @default(false)
+  heartbeat                  DateTime          @default(now()) @db.DateTime(0)
+  created_at                 DateTime          @default(now()) @db.DateTime(0)
+  updated_at                 DateTime          @default(now()) @db.DateTime(0)
+  application_types          application_types @relation(fields: [application_type], references: [application_type], onDelete: Cascade, onUpdate: NoAction, map: "applications_ibfk_1")
+
+  @@index([application_type], map: "idx_application_type")
+  @@index([created_at], map: "idx_created_at")
+  @@index([heartbeat], map: "idx_heartbeat")
+  @@index([is_application_type_active], map: "idx_is_application_type_active")
+  @@index([is_notified_by_watchdog], map: "idx_is_notified_by_watchdog")
+  @@index([updated_at], map: "idx_updated_at")
+  @@index([watchdog_try_count], map: "idx_watchdog_try_count")
+}
+
+model authentication_types {
+  id                  Int      @id @default(autoincrement())
+  authentication_type String   @unique(map: "authentication_type") @db.VarChar(255)
+  created_at          DateTime @default(now()) @db.DateTime(0)
+  updated_at          DateTime @default(now()) @db.DateTime(0)
+  apis                apis[]
+
+  @@index([authentication_type], map: "idx_authentication_type")
+  @@index([created_at], map: "idx_created_at")
+  @@index([updated_at], map: "idx_updated_at")
+}
+
+model d_guard_layouts {
+  id              Int             @id @default(autoincrement())
+  guid            String          @db.VarChar(255)
+  server_id       Int
+  created_at      DateTime        @default(now()) @db.DateTime(0)
+  updated_at      DateTime        @default(now()) @db.DateTime(0)
+  d_guard_servers d_guard_servers @relation(fields: [server_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "d_guard_layouts_ibfk_1")
+
+  @@unique([guid, server_id], map: "unique_guid_server_id")
+  @@index([created_at], map: "idx_created_at")
+  @@index([guid], map: "idx_guid")
+  @@index([server_id], map: "idx_server_id")
+  @@index([updated_at], map: "idx_updated_at")
+}
+
+model d_guard_servers {
+  id                   Int                    @id @default(autoincrement())
+  ip                   String                 @unique(map: "ip") @db.VarChar(255)
+  port                 Int
+  username             String                 @db.LongText
+  password             String                 @db.LongText
+  created_at           DateTime               @default(now()) @db.DateTime(0)
+  updated_at           DateTime               @default(now()) @db.DateTime(0)
+  d_guard_layouts      d_guard_layouts[]
+  d_guard_workstations d_guard_workstations[]
+
+  @@index([created_at], map: "idx_created_at")
+  @@index([ip], map: "idx_ip")
+  @@index([port], map: "idx_port")
+  @@index([updated_at], map: "idx_updated_at")
+}
+
+model d_guard_workstations {
+  id              Int             @id @default(autoincrement())
+  guid            String          @db.VarChar(255)
+  server_id       Int
+  created_at      DateTime        @default(now()) @db.DateTime(0)
+  updated_at      DateTime        @default(now()) @db.DateTime(0)
+  d_guard_servers d_guard_servers @relation(fields: [server_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "d_guard_workstations_ibfk_1")
+
+  @@unique([guid, server_id], map: "unique_guid_server_id")
+  @@index([created_at], map: "idx_created_at")
+  @@index([guid], map: "idx_guid")
+  @@index([server_id], map: "idx_server_id")
+  @@index([updated_at], map: "idx_updated_at")
+}
+
+model database_types {
+  id            Int         @id @default(autoincrement())
+  database_type String      @unique(map: "database_type") @db.VarChar(255)
+  created_at    DateTime    @default(now()) @db.DateTime(0)
+  updated_at    DateTime    @default(now()) @db.DateTime(0)
+  databases     databases[]
+
+  @@index([created_at], map: "idx_created_at")
+  @@index([database_type], map: "idx_database_type")
+  @@index([updated_at], map: "idx_updated_at")
+}
+
+model databases {
+  id             Int            @id @default(autoincrement())
+  name           String         @unique(map: "name") @db.VarChar(255)
+  database_type  String         @db.VarChar(255)
+  host           String?        @db.LongText
+  database       String?        @db.LongText
+  username       String         @db.LongText
+  password       String         @db.LongText
+  connect_string String?        @db.LongText
+  created_at     DateTime       @default(now()) @db.DateTime(0)
+  updated_at     DateTime       @default(now()) @db.DateTime(0)
+  database_types database_types @relation(fields: [database_type], references: [database_type], onDelete: Cascade, onUpdate: NoAction, map: "databases_ibfk_1")
+  queries        queries[]
+
+  @@index([created_at], map: "idx_created_at")
+  @@index([database_type], map: "idx_database_type")
+  @@index([name], map: "idx_name")
+  @@index([updated_at], map: "idx_updated_at")
+}
+
+model grant_types {
+  id         Int      @id @default(autoincrement())
+  grant_type String   @unique(map: "grant_type") @db.VarChar(255)
+  created_at DateTime @default(now()) @db.DateTime(0)
+  updated_at DateTime @default(now()) @db.DateTime(0)
+  apis       apis[]
+
+  @@index([created_at], map: "idx_created_at")
+  @@index([grant_type], map: "idx_grant_type")
+  @@index([updated_at], map: "idx_updated_at")
+}
+
+model method_types {
+  id                                                                  Int      @id @default(autoincrement())
+  method_type                                                         String   @unique(map: "method_type") @db.VarChar(255)
+  created_at                                                          DateTime @default(now()) @db.DateTime(0)
+  updated_at                                                          DateTime @default(now()) @db.DateTime(0)
+  apis_apis_request_target_method_typeTomethod_types                  apis[]   @relation("apis_request_target_method_typeTomethod_types")
+  apis_apis_basic_and_bearer_authentication_method_typeTomethod_types apis[]   @relation("apis_basic_and_bearer_authentication_method_typeTomethod_types")
+
+  @@index([created_at], map: "idx_created_at")
+  @@index([method_type], map: "idx_method_type")
+  @@index([updated_at], map: "idx_updated_at")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model queries {
+  id                           Int       @id @default(autoincrement())
+  name                         String    @unique(map: "name") @db.VarChar(255)
+  group_name                   String?   @db.VarChar(255)
+  request_target_database_id   Int
+  request_target_sql           String    @db.LongText
+  request_target_parameter_map Json?
+  is_query_active              Boolean   @default(true)
+  created_at                   DateTime  @default(now()) @db.DateTime(0)
+  updated_at                   DateTime  @default(now()) @db.DateTime(0)
+  databases                    databases @relation(fields: [request_target_database_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "queries_ibfk_1")
+
+  @@index([created_at], map: "idx_created_at")
+  @@index([group_name], map: "idx_group_name")
+  @@index([is_query_active], map: "idx_is_query_active")
+  @@index([name], map: "idx_name")
+  @@index([request_target_database_id], map: "idx_request_target_database_id")
+  @@index([updated_at], map: "idx_updated_at")
+}
+
+model response_types {
+  id            Int      @id @default(autoincrement())
+  response_type String   @unique(map: "response_type") @db.VarChar(255)
+  created_at    DateTime @default(now()) @db.DateTime(0)
+  updated_at    DateTime @default(now()) @db.DateTime(0)
+  apis          apis[]
+
+  @@index([created_at], map: "idx_created_at")
+  @@index([response_type], map: "idx_response_type")
+  @@index([updated_at], map: "idx_updated_at")
+}
+
+model role_types {
+  id         Int      @id @default(autoincrement())
+  role_type  String   @unique(map: "role_type") @db.VarChar(255)
+  created_at DateTime @default(now()) @db.DateTime(0)
+  updated_at DateTime @default(now()) @db.DateTime(0)
+
+  @@index([created_at], map: "idx_created_at")
+  @@index([role_type], map: "idx_role_type")
+  @@index([updated_at], map: "idx_updated_at")
+}
+
+model table_types {
+  id         Int      @id @default(autoincrement())
+  table_type String   @unique(map: "table_type") @db.VarChar(255)
+  created_at DateTime @default(now()) @db.DateTime(0)
+  updated_at DateTime @default(now()) @db.DateTime(0)
+
+  @@index([created_at], map: "idx_created_at")
+  @@index([table_type], map: "idx_table_type")
+  @@index([updated_at], map: "idx_updated_at")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model users {
+  id                Int               @id @default(autoincrement())
+  application_type  String            @db.VarChar(255)
+  role_list         Json
+  username          String            @db.VarChar(255)
+  password          String            @db.LongText
+  is_user_active    Boolean           @default(true)
+  created_at        DateTime          @default(now()) @db.DateTime(0)
+  updated_at        DateTime          @default(now()) @db.DateTime(0)
+  application_types application_types @relation(fields: [application_type], references: [application_type], onDelete: Cascade, onUpdate: NoAction, map: "users_ibfk_1")
+
+  @@unique([application_type, username], map: "unique_application_type_username")
+  @@index([application_type], map: "idx_application_type")
+  @@index([created_at], map: "idx_created_at")
+  @@index([is_user_active], map: "idx_is_user_active")
+  @@index([updated_at], map: "idx_updated_at")
+  @@index([username], map: "idx_username")
+}
