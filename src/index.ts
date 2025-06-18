@@ -9,7 +9,6 @@ import { fileURLToPath } from 'url';
 
 import { main } from './controllers/main.js';
 import { returnEncryptedLink } from './utils/returnEncryptedLink.js';
-import { watchDogOnInit } from './utils/whatchDog.js';
 
 dotenv.config();
 
@@ -36,7 +35,6 @@ app.use(morgan('combined', { stream: accessLogStream }));
 
 app.post('/webhook', async (req: Request, res: Response) => {
     try {
-        watchDogOnInit();
         await main(req.body);
         res.status(200).send('OK');
     } catch (error) {

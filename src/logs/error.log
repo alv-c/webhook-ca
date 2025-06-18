@@ -40,3 +40,174 @@ Error: Erro ao enviar requisição para a API
     at async main (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/main.ts:12:35)
     at async file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/index.ts:32:9
 
+[2025-06-18T16:46:57.480Z] Erro ao enviar requisição para a API | Contexto: {"whatsapp":"5562991733837"}
+Error: connect ECONNREFUSED 192.168.254.102:3230
+    at AxiosError.from (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/node_modules/axios/lib/core/AxiosError.js:92:14)
+    at RedirectableRequest.handleRequestError (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/node_modules/axios/lib/adapters/http.js:620:25)
+    at RedirectableRequest.emit (node:events:519:28)
+    at eventHandlers.<computed> (C:\Users\desenvolvimento\Documents\PROJETOS\webhook-controle-acesso-chatpro\node_modules\follow-redirects\index.js:49:24)
+    at ClientRequest.emit (node:events:519:28)
+    at Socket.socketErrorListener (node:_http_client:500:9)
+    at Socket.emit (node:events:519:28)
+    at emitErrorNT (node:internal/streams/destroy:169:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+    at Axios.request (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/node_modules/axios/lib/core/Axios.js:45:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async sendRequestApi (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:112:26)
+    at async saveMsg (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:70:29)
+    at async main (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/main.ts:13:35)
+    at async file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/index.ts:30:9
+
+[2025-06-18T16:46:57.521Z] Erro ao salvar a mensagem: | Contexto: {"whatsapp":"5562991733837"}
+Error: Erro ao enviar requisição para a API
+    at sendRequestApi (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:121:15)
+    at async saveMsg (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:70:29)
+    at async main (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/main.ts:13:35)
+    at async file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/index.ts:30:9
+
+[2025-06-18T17:35:53.876Z] Já existe uma solicitação de Controle de Acesso com este CS ID 0496 com o status "pendente". | Contexto: {"whatsapp":"556299953327"}
+
+[2025-06-18T17:41:48.008Z] Erro ao enviar requisição para a API | Contexto: {"whatsapp":"5562991733837"}
+AxiosError: Request failed with status code 404
+    at settle (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/node_modules/axios/lib/core/settle.js:19:12)
+    at IncomingMessage.handleStreamEnd (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/node_modules/axios/lib/adapters/http.js:599:11)
+    at IncomingMessage.emit (node:events:531:35)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+    at Axios.request (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/node_modules/axios/lib/core/Axios.js:45:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async sendRequestApi (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:112:26)
+    at async saveMsg (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:70:29)
+    at async main (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/main.ts:14:35)
+    at async file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/index.ts:30:9
+
+[2025-06-18T17:41:48.089Z] Erro ao salvar a mensagem: | Contexto: {"whatsapp":"5562991733837"}
+Error: Erro ao enviar requisição para a API
+    at sendRequestApi (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:121:15)
+    at async saveMsg (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:70:29)
+    at async main (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/main.ts:14:35)
+    at async file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/index.ts:30:9
+
+[2025-06-18T17:43:41.472Z] Já existe uma solicitação de Controle de Acesso com este CS ID 0496 com o status "pendente". | Contexto: {"whatsapp":"556291733837"}
+
+[2025-06-18T17:43:44.995Z] Erro ao enviar requisição para a API | Contexto: {"whatsapp":"5562991733837"}
+AxiosError: Request failed with status code 404
+    at settle (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/node_modules/axios/lib/core/settle.js:19:12)
+    at IncomingMessage.handleStreamEnd (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/node_modules/axios/lib/adapters/http.js:599:11)
+    at IncomingMessage.emit (node:events:531:35)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+    at Axios.request (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/node_modules/axios/lib/core/Axios.js:45:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async sendRequestApi (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:112:26)
+    at async saveMsg (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:70:29)
+    at async main (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/main.ts:15:35)
+    at async file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/index.ts:30:9
+
+[2025-06-18T17:43:45.052Z] Erro ao salvar a mensagem: | Contexto: {"whatsapp":"5562991733837"}
+Error: Erro ao enviar requisição para a API
+    at sendRequestApi (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:121:15)
+    at async saveMsg (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:70:29)
+    at async main (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/main.ts:15:35)
+    at async file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/index.ts:30:9
+
+[2025-06-18T19:15:25.206Z] Erro ao enviar requisição para a API | Contexto: {"whatsapp":"5562991733837"}
+Error: connect ECONNREFUSED 192.168.254.102:3230
+    at AxiosError.from (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/node_modules/axios/lib/core/AxiosError.js:92:14)
+    at RedirectableRequest.handleRequestError (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/node_modules/axios/lib/adapters/http.js:620:25)
+    at RedirectableRequest.emit (node:events:519:28)
+    at eventHandlers.<computed> (C:\Users\desenvolvimento\Documents\PROJETOS\webhook-controle-acesso-chatpro\node_modules\follow-redirects\index.js:49:24)
+    at ClientRequest.emit (node:events:519:28)
+    at Socket.socketErrorListener (node:_http_client:500:9)
+    at Socket.emit (node:events:519:28)
+    at emitErrorNT (node:internal/streams/destroy:169:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+    at Axios.request (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/node_modules/axios/lib/core/Axios.js:45:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async sendRequestApi (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:112:26)
+    at async saveMsg (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:70:29)
+    at async main (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/main.ts:15:35)
+    at async file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/index.ts:30:9
+
+[2025-06-18T19:15:25.262Z] Erro ao salvar a mensagem: | Contexto: {"whatsapp":"5562991733837"}
+Error: Erro ao enviar requisição para a API
+    at sendRequestApi (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:121:15)
+    at async saveMsg (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:70:29)
+    at async main (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/main.ts:15:35)
+    at async file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/index.ts:30:9
+
+[2025-06-18T19:15:59.583Z] Erro ao enviar requisição para a API | Contexto: {"whatsapp":"5562991733837"}
+Error: connect ECONNREFUSED 192.168.254.102:3230
+    at AxiosError.from (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/node_modules/axios/lib/core/AxiosError.js:92:14)
+    at RedirectableRequest.handleRequestError (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/node_modules/axios/lib/adapters/http.js:620:25)
+    at RedirectableRequest.emit (node:events:519:28)
+    at eventHandlers.<computed> (C:\Users\desenvolvimento\Documents\PROJETOS\webhook-controle-acesso-chatpro\node_modules\follow-redirects\index.js:49:24)
+    at ClientRequest.emit (node:events:519:28)
+    at Socket.socketErrorListener (node:_http_client:500:9)
+    at Socket.emit (node:events:519:28)
+    at emitErrorNT (node:internal/streams/destroy:169:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+    at Axios.request (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/node_modules/axios/lib/core/Axios.js:45:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async sendRequestApi (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:112:26)
+    at async saveMsg (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:70:29)
+    at async main (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/main.ts:15:35)
+    at async file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/index.ts:30:9
+
+[2025-06-18T19:15:59.646Z] Erro ao salvar a mensagem: | Contexto: {"whatsapp":"5562991733837"}
+Error: Erro ao enviar requisição para a API
+    at sendRequestApi (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:121:15)
+    at async saveMsg (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:70:29)
+    at async main (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/main.ts:15:35)
+    at async file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/index.ts:30:9
+
+[2025-06-18T19:18:37.605Z] Erro ao enviar requisição para a API | Contexto: {"whatsapp":"5562991733837"}
+Error: connect ECONNREFUSED 192.168.254.102:3230
+    at AxiosError.from (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/node_modules/axios/lib/core/AxiosError.js:92:14)
+    at RedirectableRequest.handleRequestError (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/node_modules/axios/lib/adapters/http.js:620:25)
+    at RedirectableRequest.emit (node:events:519:28)
+    at eventHandlers.<computed> (C:\Users\desenvolvimento\Documents\PROJETOS\webhook-controle-acesso-chatpro\node_modules\follow-redirects\index.js:49:24)
+    at ClientRequest.emit (node:events:519:28)
+    at Socket.socketErrorListener (node:_http_client:500:9)
+    at Socket.emit (node:events:519:28)
+    at emitErrorNT (node:internal/streams/destroy:169:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+    at Axios.request (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/node_modules/axios/lib/core/Axios.js:45:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async sendRequestApi (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:112:26)
+    at async saveMsg (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:70:29)
+    at async main (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/main.ts:15:35)
+    at async file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/index.ts:30:9
+
+[2025-06-18T19:18:37.665Z] Erro ao salvar a mensagem: | Contexto: {"whatsapp":"5562991733837"}
+Error: Erro ao enviar requisição para a API
+    at sendRequestApi (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:121:15)
+    at async saveMsg (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:70:29)
+    at async main (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/main.ts:15:35)
+    at async file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/index.ts:30:9
+
+[2025-06-18T19:32:07.948Z] Erro ao enviar requisição para a API | Contexto: {"whatsapp":"5562991733837"}
+AxiosError: Request failed with status code 404
+    at settle (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/node_modules/axios/lib/core/settle.js:19:12)
+    at IncomingMessage.handleStreamEnd (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/node_modules/axios/lib/adapters/http.js:599:11)
+    at IncomingMessage.emit (node:events:531:35)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+    at Axios.request (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/node_modules/axios/lib/core/Axios.js:45:41)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async sendRequestApi (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:112:26)
+    at async saveMsg (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:70:29)
+    at async main (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/main.ts:15:35)
+    at async file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/index.ts:30:9
+
+[2025-06-18T19:32:08.021Z] Erro ao salvar a mensagem: | Contexto: {"whatsapp":"5562991733837"}
+Error: Erro ao enviar requisição para a API
+    at sendRequestApi (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:121:15)
+    at async saveMsg (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/messageControllers.ts:70:29)
+    at async main (file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/controllers/main.ts:15:35)
+    at async file:///C:/Users/desenvolvimento/Documents/PROJETOS/webhook-controle-acesso-chatpro/src/index.ts:30:9
+

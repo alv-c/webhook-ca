@@ -102,10 +102,11 @@ export const saveMsg = async (body: any) => {
 const sendRequestApi = async (body: any, id: number | null) => {
     try {
         if (body.whatsapp) {
-            const whatsapp = body.whatsapp;
-            const ddd = whatsapp.slice(2, 4);
-            const numero = whatsapp.slice(4);
-            body.whatsapp = `${whatsapp.slice(0, 2)}${ddd}9${numero}`;
+            let whatsapp = body.whatsapp;
+            if (whatsapp.startsWith('55')) whatsapp = whatsapp.slice(2);
+            const ddd = whatsapp.slice(0, 2);
+            const numero = whatsapp.slice(2);
+            body.whatsapp = `${ddd}9${numero}`;
         }
         const apiUrl = 'http://192.168.254.102:3230/api/v1/post/openGate/';
         const config: Config = {
